@@ -16,10 +16,10 @@ class Image
     duplicate.each_with_index do |row, y| 
       row.each_with_index do |pixel, x|
         next if pixel != 1
-        @imageValues[y-1][x] = 1 
-        @imageValues[y+1][x] = 1 unless y == 4
-        @imageValues[y][x-1] = 1 
-        @imageValues[y][x+1] = 1 unless x == 3
+        @imageValues[y-1][x] = 1 unless y == 0
+        @imageValues[y+1][x] = 1 unless y == @imageValues.length - 1
+        @imageValues[y][x-1] = 1 unless x == 0
+        @imageValues[y][x+1] = 1 unless x == @imageValues[y].length - 1
 
       end
     end
